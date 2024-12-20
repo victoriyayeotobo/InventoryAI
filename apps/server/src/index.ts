@@ -5,6 +5,7 @@ import { connectToDatabase } from "./shared/database/mongo";
 import { env } from "./environment";
 import { authRouter } from './modules/auth/routes';
 import { errorMiddleware } from './shared/middleware';
+import { inventoryRouter } from './modules/inventory/routes';
 
 // initializing express application
 const app:Application = express();
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
  */
 const BASE_URL = '/api/v1';
 app.use(`${BASE_URL}/auth`, authRouter);
+app.use(`${BASE_URL}/inventory`, inventoryRouter);
 
 /**
  * Dont move this error middleware
