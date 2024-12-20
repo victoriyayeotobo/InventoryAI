@@ -1,7 +1,12 @@
+import 'reflect-metadata';
 import express, { Application } from "express";
 import cors from "cors";
+import { connectToDatabase } from "./shared/database/mongo";
+import { env } from "./environment";
+import { authRouter } from './modules/auth/routes';
+import { errorMiddleware } from './shared/middleware';
 
-
+// initializing express application
 const app:Application = express();
 
 /**
@@ -14,6 +19,18 @@ app.use(express.urlencoded({ extended: true }));
 /**
  * Routes
  */
-app.listen(5000, () => {
+const BASE_URL = '/api/v1';
+app.use(`${BASE_URL}/auth`, authRouter);
+
+/**
+ * Dont move this error middleware
+ */
+app.use(errorMiddleware);
+
+/**
+ * Start server and database connection
+ */
+app.listen(env.PORT, async () => {
+    connectToDatabase(env.DB)
     console.log("server currently running");
 })
