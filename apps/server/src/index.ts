@@ -22,6 +22,10 @@ app.use(express.urlencoded({ extended: true }));
 const BASE_URL = '/api/v1';
 app.use(`${BASE_URL}/auth`, authRouter);
 
+/**
+ * Dont move this error middleware
+ */
+app.use(errorMiddleware);
 
 /**
  * Start server and database connection
