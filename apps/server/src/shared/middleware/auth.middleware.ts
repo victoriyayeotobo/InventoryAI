@@ -1,5 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import { NotAuthorizedError } from "../errors";
+import { verifyToken } from "../utils";
+import { env } from "../../environment";
+import { JwtPayload } from "jsonwebtoken";
 
 declare global {
   namespace Express {
@@ -14,15 +17,22 @@ export const authMiddleware = async (
   res: Response,
   next: NextFunction,
 ) => {
-  const access_token = req.headers.authorization?.split(" ")[1];
+  const accessToken = req.headers.authorization?.split(" ")[1]; 
+
   try {
-    if (!access_token) {
-      throw new NotAuthorizedError("failed to find token");
+    if (!accessToken) {
+      throw new NotAuthorizedError("Failed to find token");
     }
 
-   
-    next();
-  } catch (e: any) {
-    next(e);
+    const decoded = await verifyToken(accessToken, env.JWT_SECRET) as JwtPayload;
+    if (!decoded || !decoded.id) {
+      throw new NotAuthorizedError("Invalid token payload");
+    }
+
+    req.user = { id: decoded.id };
+
+    next(); 
+  } catch (err: any) {
+    next(err); 
   }
 };
