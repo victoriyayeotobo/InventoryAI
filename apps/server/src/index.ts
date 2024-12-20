@@ -1,5 +1,7 @@
 import express, { Application } from "express";
 import cors from "cors";
+import { connectToDatabase } from "./shared/database/mongo";
+import { env } from "./environment";
 
 
 const app:Application = express();
@@ -14,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 /**
  * Routes
  */
-app.listen(5000, () => {
+app.listen(env.PORT, async () => {
+    connectToDatabase(env.DB)
     console.log("server currently running");
 })
