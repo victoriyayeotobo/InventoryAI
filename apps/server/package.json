@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "type": "commonjs",
   "scripts": {
-    "build": "pnpm build",
+    "build": "tsc",
     "dev": "nodemon src/index.ts"
   },
   "keywords": [],
