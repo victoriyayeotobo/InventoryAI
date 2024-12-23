@@ -21,6 +21,9 @@ app.use(express.urlencoded({ extended: true }));
  * Routes
  */
 const BASE_URL = '/api/v1';
+app.use("/healthcheck", (req, res) => {
+    res.status(200).send({ status: "ok" });
+})
 app.use(`${BASE_URL}/auth`, authRouter);
 app.use(`${BASE_URL}/inventory`, inventoryRouter);
 
