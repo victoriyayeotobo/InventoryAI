@@ -37,5 +37,9 @@ app.use(errorMiddleware);
  */
 app.listen(env.PORT, async () => {
     connectToDatabase(env.DB)
-    console.log("server currently running");
+    if(env.ENV == "development"){
+    console.log(`server currently running on port:${env.PORT}`);
+    }else {
+    console.log(`server currently running`);
+    }
 })
