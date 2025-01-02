@@ -26,6 +26,7 @@ authRouter.patch("/refresh-token",
     });
 
 authRouter.post("/logout", 
+    authMiddleware,
     async (req: Request, res: Response, next: NextFunction) => {
         await authController.logOut(req, res, next);
     });

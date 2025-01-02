@@ -67,14 +67,13 @@ export default class AuthController {
 
             const { id } = req.user;
 
-            const response = await this.authService.logout(id);
+            await this.authService.logout(id);
 
             sendResponse({
                 res,
                 status: "success",
                 statusCode: StatusCode.OK,
-                message: "successfully logged user offline",
-                data: response
+                message: "successfully logged user out"
             });
         } catch (err: any) {
             next(err);
