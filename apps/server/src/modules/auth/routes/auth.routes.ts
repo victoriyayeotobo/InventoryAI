@@ -1,9 +1,8 @@
 import { Request, Response, NextFunction, Router } from "express";
 import { container } from "tsyringe";
-import AuthController from "../controllers/auth.controller";
 import { authMiddleware, validateMiddleware } from "../../../shared/middleware";
 import { refreshTokenSchema, userLoginSchema, userRegistrationSchema } from "../validations";
-
+import { AuthController } from "../controllers";
 
 const authRouter = Router();
 const authController = container.resolve(AuthController);
