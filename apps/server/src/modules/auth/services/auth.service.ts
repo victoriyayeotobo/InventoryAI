@@ -63,7 +63,7 @@ export default class AuthService {
 
         const accessToken = await generateToken({
             id: existingUser._id
-        }, env.JWT_SECRET);
+        }, env.JWT_SECRET, '15m');
 
         const refreshToken = await generateToken({
             id: existingUser._id
