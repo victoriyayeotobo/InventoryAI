@@ -7,6 +7,3 @@
   PNPM_VERSION = "8.6.12"
   NPM_FLAGS = "--prefer-offline"
   PNPM_HOME = "/opt/buildhome/.pnpm"
-
-[[plugins]]
-  package = "@netlify/plugin-local-install"
