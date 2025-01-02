@@ -3,7 +3,8 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "16"
+  NODE_VERSION = "18"
+  PNPM_VERSION = "8.6.12"
   NPM_FLAGS = "--prefer-offline"
   PNPM_HOME = "/opt/buildhome/.pnpm"
 
