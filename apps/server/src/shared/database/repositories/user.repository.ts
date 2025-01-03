@@ -13,11 +13,11 @@ export default class UserRepository {
     }
 
     async findUserByEmail(email: string): Promise<User | null> {
-        return await UserModel.findOne({ email }).select('-password -refreshToken +_id');
+        return await UserModel.findOne({ email });
     }
 
     async findUserById(userId: string): Promise<User | null> {
-        return await UserModel.findOne({ _id: userId }).select('-password -refreshToken +_id');
+        return await UserModel.findOne({ _id: userId });
     }
 
     async setRefreshToken(userId: string, refreshToken: string): Promise<User | null> {

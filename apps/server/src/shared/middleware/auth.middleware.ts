@@ -21,7 +21,7 @@ export const authMiddleware = async (
 
   try {
     if (!accessToken) {
-      throw new NotAuthorizedError("Failed to find token");
+      throw new NotAuthorizedError("Failed to find access token");
     }
 
     const decoded = await verifyToken(accessToken, env.JWT_SECRET) as JwtPayload;

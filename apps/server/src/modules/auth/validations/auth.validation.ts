@@ -13,5 +13,5 @@ export const userLoginSchema = Joi.object({
 });
 
 export const refreshTokenSchema = Joi.object({
-    refreshToken: Joi.string().email().required()
+    refreshToken: Joi.string().required()
 });
