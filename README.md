@@ -24,6 +24,10 @@ The primary goal of InventoryAI is to assist businesses in maintaining optimal i
 - **Advanced AI Models**: Python-based models for accurate demand forecasting.
 - **Monorepo Structure**: Unified codebase for streamlined development and deployment.
 
+## Demo
+
+Check out the live demo: [InventoryAI Demo](https://venerable-eclair-bfd886.netlify.app/)
+
 ## Tech Stack
 
 - **Frontend**: Next.js, React, Tailwind CSS
@@ -133,9 +137,6 @@ We welcome contributions! Please follow these steps:
 
 6. **Create a Pull Request**: Navigate to the original repository and create a pull request from your branch.
 
-
 ## Credits
 
 InventoryAI is developed and maintained by [Dev Huddle](https://github.com/dev-huddle).
-
-
