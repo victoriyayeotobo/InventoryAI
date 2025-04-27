@@ -13,7 +13,7 @@ The primary goal of InventoryAI is to assist businesses in maintaining optimal i
 ## Functionality
 
 - **Real-Time Inventory Tracking**: Monitor stock levels across multiple locations in real-time.
-- **AI-Powered Demand Forecasting**: Predict future inventory requirements using machine learning models.
+- **AI-Powered Demand Forecasting**: Predict future inventory requirements using machine learning models, including a time-series forecasting model built with ARIMA techniques.
 - **Automated Reordering**: Set up automatic purchase orders based on predefined thresholds.
 - **Comprehensive Reporting**: Generate detailed reports on inventory performance and trends.
 
@@ -44,16 +44,16 @@ The project follows a monorepo structure managed by Turborepo:
 InventoryAI/
 ├── apps/
 │   ├── web/           # Next.js frontend application
-│   └── backend/       # Node.js (Express) backend application
+│   └— backend/       # Node.js (Express) backend application
 ├── packages/
 │   ├── ui/            # Shared UI components
 │   ├── eslint-config/ # Shared ESLint configurations
-│   └── tsconfig/      # Shared TypeScript configurations
-├── models/            # Python AI models
+│   └— tsconfig/      # Shared TypeScript configurations
+├── models/            # Python AI models (including ARIMA forecasting)
 ├── .vscode/           # VSCode settings
 ├── package.json       # Root package.json
 ├── pnpm-workspace.yaml# pnpm workspace configuration
-└── turbo.json         # Turborepo configuration
+└— turbo.json         # Turborepo configuration
 ```
 
 ## Setup Guide
@@ -66,9 +66,9 @@ Follow these steps to set up the project locally:
 - **Python**: Ensure Python 3.x is installed. [Download Python](https://www.python.org/downloads/)
 - **pnpm**: Install pnpm globally using npm:
 
-  ```bash
-  npm install -g pnpm
-  ```
+```bash
+npm install -g pnpm
+```
 
 ### Cloning the Repository
 
@@ -91,23 +91,23 @@ Start the development servers for both frontend and backend:
 
 1. **Frontend (Next.js)**:
 
-   ```bash
-   pnpm --filter web dev
-   ```
+```bash
+pnpm --filter web dev
+```
 
 2. **Backend (Express.js)**:
 
-   ```bash
-   pnpm --filter backend dev
-   ```
+```bash
+pnpm --filter backend dev
+```
 
 3. **AI Models (Python)**:
 
-   ```bash
-   cd models
-   pip install -r requirements.txt
-   python app.py
-   ```
+```bash
+cd models
+pip install -r requirements.txt
+python app.py
+```
 
 The frontend will be accessible at `http://localhost:3000`, the backend at `http://localhost:5000`, and the AI models as configured.
 
@@ -118,22 +118,22 @@ We welcome contributions! Please follow these steps:
 1. **Fork the Repository**: Click the 'Fork' button on the GitHub page.
 2. **Create a Branch**: Create a new branch for your feature or bugfix.
 
-   ```bash
-   git checkout -b feature-name
-   ```
+```bash
+git checkout -b feature-name
+```
 
 3. **Make Changes**: Implement your changes in the codebase.
 4. **Commit Changes**: Commit your changes with a descriptive message.
 
-   ```bash
-   git commit -m "Add feature-name"
-   ```
+```bash
+git commit -m "Add feature-name"
+```
 
 5. **Push to GitHub**: Push your branch to your forked repository.
 
-   ```bash
-   git push origin feature-name
-   ```
+```bash
+git push origin feature-name
+```
 
 6. **Create a Pull Request**: Navigate to the original repository and create a pull request from your branch.
 
